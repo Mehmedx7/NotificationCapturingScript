@@ -1,17 +1,14 @@
-import kivy
 from kivy.app import App
 from kivy.uix.button import Button
-from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.label import Label
+from kivy.uix.textinput import TextInput
 
-class HelloWorldApp(App):
-    def build(self):
-        layout = BoxLayout(orientation='vertical')
-        button = Button(text='Print Hello World', on_press=self.print_hello_world)
-        layout.add_widget(button)
-        return layout
+class Interface(FloatLayout):
+    def display_information(self):
+        data=self.ids.textInput.text
+        self.ids.label.text=data
+class ProjectApp(App):
+    pass
 
-    def print_hello_world(self, instance):
-        print("Hello, World!")
-
-if __name__ == '__main__':
-    HelloWorldApp().run()
+ProjectApp().run()
